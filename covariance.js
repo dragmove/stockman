@@ -1,4 +1,4 @@
-import average from './_average';
+import average from './average';
 
 function covariance(arrayX, arrayY) {
   if (not(Array.isArray)(arrayX) || not(Array.isArray)(arrayY)) throw new TypeError('[covariance] : arrayX and arrayY parameter type must be Array.');

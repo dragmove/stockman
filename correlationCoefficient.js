@@ -1,5 +1,5 @@
-import covariance from './_covariance';
-import standardDeviation from './_standardDeviation';
+import covariance from './covariance';
+import standardDeviation from './standardDeviation';
 
 function correlationCoefficient(arrayX, arrayY) {
   if (not(Array.isArray)(arrayX) || not(Array.isArray)(arrayY)) throw new TypeError('[correlationCoefficient] : arrayX and arrayY parameter type must be Array.');

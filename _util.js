@@ -1,5 +1,1 @@
-export const not = (func) => {
-  return (object) => {
-    return !func(object);
-  };
-};
+export const not = (func) => (object) => !func(object);

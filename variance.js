@@ -1,5 +1,5 @@
 import { not } from './_util';
-import average from './_average';
+import average from './average';
 
 function variance(array) {
   if (not(Array.isArray)(array)) throw new TypeError('[variance] : array parameter type must be Array.');

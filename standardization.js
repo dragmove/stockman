@@ -1,5 +1,5 @@
-import average from './_average';
-import standardDeviation from './_standardDeviation';
+import average from './average';
+import standardDeviation from './standardDeviation';
 
 /*
  * after standardization, average will be 0 (zero). standard deviation will be 1 (one).

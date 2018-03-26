@@ -1,4 +1,4 @@
-import variance from './_variance';
+import variance from './variance';
 
 function standardDeviation(array) {
   if (not(Array.isArray)(array)) throw new TypeError('[standardDeviation] : array parameter type must be Array.');
