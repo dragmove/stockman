@@ -1,5 +1,5 @@
 import { not } from './_util';
-import sum from './_sum';
+import sum from './sum';
 
 function average(array) {
   if (not(Array.isArray)(array)) throw new TypeError('[average] : array parameter type must be Array.');
