@@ -1,3 +1,4 @@
+import { not } from './_util';
 import variance from './variance';
 
 function standardDeviation(array) {

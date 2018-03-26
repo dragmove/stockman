@@ -1,3 +1,4 @@
+import { not } from './_util';
 import average from './average';
 import standardDeviation from './standardDeviation';
 

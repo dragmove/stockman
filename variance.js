@@ -8,7 +8,7 @@ function variance(array) {
 
   const av = average(array),
     sum = array.reduce((previous, current) => previous + Math.pow(current - av, 2), 0);
-
+    
   return sum / (array.length - 1);
 }
 

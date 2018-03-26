@@ -1,9 +1,10 @@
 import statistics from './statistics';
 
 import { average } from './average';
-import { covariance } from './covariance';
+import { variance } from './variance';
 import { standardDeviation } from './standardDeviation';
 import { standardization } from './standardization';
+import { covariance } from './covariance';
 import { correlationCoefficient } from './correlationCoefficient';
 
 import { sum } from './sum';
@@ -12,9 +13,10 @@ export default {
   statistics,
 
   average,
-  covariance,
+  variance,
   standardDeviation,
   standardization,
+  covariance,
   correlationCoefficient,
 
   sum

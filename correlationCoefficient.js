@@ -1,3 +1,4 @@
+import { not } from './_util';
 import covariance from './covariance';
 import standardDeviation from './standardDeviation';
 
