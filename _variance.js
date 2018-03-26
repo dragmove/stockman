@@ -2,7 +2,7 @@ import { not } from './_util';
 import average from './_average';
 
 function variance(array) {
-  if (not(Array.isArray)(array)) throw new TypeError('variance : array parameter type must be Array.');
+  if (not(Array.isArray)(array)) throw new TypeError('[variance] : array parameter type must be Array.');
 
   if (array.length <= 0) return 0;
 
