@@ -1,8 +1,9 @@
 const path = require('path'),
+  dirName = path.resolve('./'),
   webpack = require('webpack'),
-  dirName = path.resolve('./');
+  UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
-function createConfig(isDebug, options = { banner: '' }) {
+function createConfig(isDebug, options = {banner: ''}) {
   let devTool = '',
     plugins = [];
 
@@ -13,36 +14,41 @@ function createConfig(isDebug, options = { banner: '' }) {
   if (isDebug) {
     devTool = 'eval-source-map';
 
-    plugins.push(new webpack.optimize.UglifyJsPlugin({
+    plugins.push(new UglifyJsPlugin({
       sourceMap: false,
-      mangle: false,
-      output: {
-        beautify: true,
-        comments: true,
-      },
-      compress: {
-        unused: false,
-        drop_console: false,
-        warnings: false
+      uglifyOptions: {
+        warnings: true,
+        compress: {
+          drop_console: false,
+          unused: false,
+          warnings: true
+        },
+        mangle: false,
+        output: {
+          beautify: true,
+          comments: true
+        }
       }
     }), new webpack.HotModuleReplacementPlugin());
 
   } else {
     devTool = 'source-map';
 
-    plugins.push(new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      mangle: true,
-      output: {
-        beautify: false,
-        comments: false,
-      },
-      compress: {
-        unused: true,
-        drop_console: true,
-        warnings: true
+    plugins.push(new UglifyJsPlugin({
+      sourceMap: false,
+      uglifyOptions: {
+        warnings: true,
+        compress: {
+          drop_console: true,
+          unused: true,
+          warnings: true
+        },
+        mangle: true,
+        output: {
+          beautify: false,
+          comments: false
+        }
       }
-
     }), new webpack.BannerPlugin({
       banner: (options.banner || ''),
       raw: true
@@ -86,7 +92,7 @@ function createConfig(isDebug, options = { banner: '' }) {
 
     devServer: {
       contentBase: './',
-      noInfo: true,
+      noInfo: false,
       port: 9000,
       hot: true,
       inline: true
