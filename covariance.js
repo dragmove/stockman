@@ -1,7 +1,7 @@
 import { not } from './_util';
-import average from './average';
+import { average } from './average';
 
-function covariance(arrayX, arrayY) {
+export function covariance(arrayX, arrayY) {
   if (not(Array.isArray)(arrayX) || not(Array.isArray)(arrayY)) throw new TypeError('[covariance] : arrayX and arrayY parameter type must be Array.');
 
   if (arrayX.length !== arrayY.length) throw new Error('[covariance] : arrayX and arrayY length must be the same.');
@@ -17,5 +17,3 @@ function covariance(arrayX, arrayY) {
 
   return sum / (n - 1);
 }
-
-export default covariance;
