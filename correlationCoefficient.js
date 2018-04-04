@@ -11,6 +11,12 @@ function correlationCoefficient(arrayX, arrayY) {
     stdX = standardDeviation(arrayX),
     stdY = standardDeviation(arrayY);
 
+  /*
+   * cc (correlation coefficient) is >= -1 and <= 1.
+   * The closer to -1, get the stronger cc of minus(-). That means arrayX and arrayY are 'substituete good' each other.
+   * The closer to 1, get the stronger cc of plus(+). That means arrayX and arrayY are 'complementary good' each other.
+   * The closer to 0, get the irrelevant. That means arrayX and arrayY are unrelated each other.
+   */
   return cov / (stdX * stdY);
 }
 
