@@ -54,7 +54,11 @@
       "./*.js"
     ],
     "match": [],
+    "concurrency": 5,
     "failFast": true,
+    "failWithoutAssertions": false,
+    "tap": true,
+    "compileEnhancements": false,
     "require": [
       "babel-register"
     ],
