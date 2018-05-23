@@ -13,7 +13,7 @@ export function standardization(array) {
   const av = average(array),
     std = standardDeviation(array);
 
-  return array.map(function (value) {
+  return array.map(function(value) {
     return (value - av) / std;
   });
 }

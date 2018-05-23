@@ -1,18 +1,8 @@
 {
   "name": "stockman",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A Bundle of Javascript util Library to help developers make money",
-  "keywords": [
-    "stockman",
-    "stock",
-    "trading",
-    "data",
-    "statistics",
-    "util",
-    "javascript",
-    "js",
-    "dragmove"
-  ],
+  "keywords": ["stockman", "stock", "trading", "data", "statistics", "util", "javascript", "js", "dragmove"],
   "homepage": "https://www.npmjs.com/package/stockman",
   "bugs": {
     "url": "https://github.com/dragmove/stockman/issues",
@@ -20,7 +10,7 @@
   },
   "main": "stockman.js",
   "scripts": {
-    "test": "ava --watch"
+    "test:watch": "ava --watch"
   },
   "author": {
     "name": "Hyun-Seok.Kim",
@@ -47,21 +37,15 @@
     "webpack-dev-server": "^2.10.0"
   },
   "ava": {
-    "files": [
-      "./tests/test.*.js"
-    ],
-    "source": [
-      "./*.js"
-    ],
+    "files": ["./tests/test.*.js"],
+    "source": ["./*.js"],
     "match": [],
     "concurrency": 5,
     "failFast": true,
     "failWithoutAssertions": false,
     "tap": true,
     "compileEnhancements": false,
-    "require": [
-      "babel-register"
-    ],
+    "require": ["babel-register"],
     "babel": "inherit"
   }
 }

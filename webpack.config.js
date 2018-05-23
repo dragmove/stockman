@@ -3,56 +3,61 @@ const path = require('path'),
   webpack = require('webpack'),
   UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
-function createConfig(isDebug, options = {banner: ''}) {
+function createConfig(isDebug, options = { banner: '' }) {
   let devTool = '',
     plugins = [];
 
   const appEntry = {
-    "stockman": ['./stockman.js']
+    stockman: ['./stockman.js']
   };
 
   if (isDebug) {
     devTool = 'eval-source-map';
 
-    plugins.push(new UglifyJsPlugin({
-      sourceMap: false,
-      uglifyOptions: {
-        warnings: true,
-        compress: {
-          drop_console: false,
-          unused: false,
-          warnings: true
-        },
-        mangle: false,
-        output: {
-          beautify: true,
-          comments: true
+    plugins.push(
+      new UglifyJsPlugin({
+        sourceMap: false,
+        uglifyOptions: {
+          warnings: true,
+          compress: {
+            drop_console: false,
+            unused: false,
+            warnings: true
+          },
+          mangle: false,
+          output: {
+            beautify: true,
+            comments: true
+          }
         }
-      }
-    }), new webpack.HotModuleReplacementPlugin());
-
+      }),
+      new webpack.HotModuleReplacementPlugin()
+    );
   } else {
     devTool = 'source-map';
 
-    plugins.push(new UglifyJsPlugin({
-      sourceMap: false,
-      uglifyOptions: {
-        warnings: true,
-        compress: {
-          drop_console: true,
-          unused: true,
-          warnings: true
-        },
-        mangle: true,
-        output: {
-          beautify: false,
-          comments: false
+    plugins.push(
+      new UglifyJsPlugin({
+        sourceMap: false,
+        uglifyOptions: {
+          warnings: true,
+          compress: {
+            drop_console: true,
+            unused: true,
+            warnings: true
+          },
+          mangle: true,
+          output: {
+            beautify: false,
+            comments: false
+          }
         }
-      }
-    }), new webpack.BannerPlugin({
-      banner: (options.banner || ''),
-      raw: true
-    }));
+      }),
+      new webpack.BannerPlugin({
+        banner: options.banner || '',
+        raw: true
+      })
+    );
   }
 
   return {
@@ -62,7 +67,7 @@ function createConfig(isDebug, options = {banner: ''}) {
 
     output: {
       path: path.resolve(dirName),
-      filename: "stockman.min.js",
+      filename: 'stockman.min.js',
       library: 'stockman',
       libraryTarget: 'umd',
       libraryExport: 'default'
@@ -79,7 +84,7 @@ function createConfig(isDebug, options = {banner: ''}) {
         {
           test: /\.jsx?$/,
           exclude: /node_modules/,
-          loader: 'eslint-loader',
+          loader: 'eslint-loader'
         }
       ]
     },

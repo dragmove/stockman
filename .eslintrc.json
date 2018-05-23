@@ -27,14 +27,8 @@
       }
     ],
     "linebreak-style": "off",
-    "quotes": [
-      "error",
-      "single"
-    ],
-    "semi": [
-      "error",
-      "always"
-    ],
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
     "no-extra-boolean-cast": "off",
     "no-unused-vars": [
       "error",

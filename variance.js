@@ -7,7 +7,7 @@ export function variance(array) {
   if (array.length <= 0) return 0;
 
   const av = average(array),
-    sum = array.reduce(function (previous, current) {
+    sum = array.reduce(function(previous, current) {
       return previous + Math.pow(current - av, 2);
     }, 0);
 

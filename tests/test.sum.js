@@ -34,7 +34,38 @@ test('if argument is not Array type, throw TypeError.', t => {
   error = t.throws(() => sum(new RegExp('^stockman')), TypeError);
   t.is(error.message, errorMessage);
 
-  error = t.throws(() => sum(new RegExp(/^stockman/)), TypeError);
+  error = t.throws(() => sum(/^stockman/), TypeError);
+  t.is(error.message, errorMessage);
+});
+
+test('if arguments are not Number type, throw TypeError.', t => {
+  const errorMessage = '[sum] : current parameter type must be Number.';
+
+  let error = t.throws(() => sum([99, undefined]), TypeError);
+  t.is(error.message, errorMessage);
+
+  error = t.throws(() => sum([99, null]), TypeError);
+  t.is(error.message, errorMessage);
+
+  error = t.throws(() => sum([99, false]), TypeError);
+  t.is(error.message, errorMessage);
+
+  error = t.throws(() => sum([99, true]), TypeError);
+  t.is(error.message, errorMessage);
+
+  error = t.throws(() => sum([99, '']), TypeError);
+  t.is(error.message, errorMessage);
+
+  error = t.throws(() => sum([99, {}]), TypeError);
+  t.is(error.message, errorMessage);
+
+  error = t.throws(() => sum([99, function() {}]), TypeError);
+  t.is(error.message, errorMessage);
+
+  error = t.throws(() => sum([99, new RegExp('^stockman')]), TypeError);
+  t.is(error.message, errorMessage);
+
+  error = t.throws(() => sum([99, /^stockman/]), TypeError);
   t.is(error.message, errorMessage);
 });
 
@@ -45,7 +76,6 @@ test('if argument Array has no element, return 0.', t => {
 test('if argument Array has elements, return sum', t => {
   t.is(sum([1, 2, 3, 4, 5]), 15);
 });
-
 
 /*
  test.after('cleanup', t => {
